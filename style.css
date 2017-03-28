@@ -1,0 +1,122 @@
+		@font-face {
+			font-family: 'Noto Sans KR';
+			font-style: normal;
+			font-weight: 300;
+			src: url(NotoSansCJKkr-Light.otf) format('opentype');
+		}
+
+		* {
+			font-family: 'Noto Sans KR', sans-serif;
+		}
+
+		html {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+		}
+
+		#mainDiv, #infMode, #testMode {
+			width: 100%;
+			height: 70%;
+			text-align: center;
+			margin-top: 15%;
+		}
+
+		#mainDiv > p, #infMode > p:not(#tip), #testMode > p:not(#tip), .selectBtn {
+			display: inline-block;
+			width: 200px;
+			height: 40px;
+			border-radius: 5px;
+			border: 1px solid #3668a7;
+			line-height: 40px;
+			margin-right: 20px;
+			color: #3668a7;
+			cursor: pointer;
+		}
+
+		.selectBtn {
+			display: none;
+		}
+
+		h2, h3 {
+			font-weight: normal;
+			font-size: 2em;
+		}
+
+		#gameDiv {
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			margin-top: 5%;
+			display: none;
+		}
+
+		#gameDiv2 {
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			margin-top: 5%;
+			display: none;
+		}
+
+		#mask {
+			width: 300px;
+			height: 300px;
+			margin-left: auto;
+			margin-right: auto;
+			background-image: url("ex.png");
+			background-position: -580px;
+			background-position-y: -580px;
+			background-size: 1500px 2200px;
+			background-repeat: no-repeat;
+			margin-bottom: 0%;
+		}
+
+		#answer {
+			margin-bottom: 5%;
+			opacity: 0;
+		}
+
+		#mask img {
+			/*position: relative;
+			bottom: 50%;
+			width: 200%;
+			margin-right:
+			height: auto;
+			background-size: contain;
+			background-position: center;
+			background-size: cover;*/
+		}
+
+		.gameBtn {
+			display: inline-block;
+			width: 200px;
+			height: 40px;
+			border-radius: 5px;
+			border: 1px solid #3668a7;
+			line-height: 40px;
+			margin-right: 20px;
+			color: #3668a7;
+			cursor: pointer;
+			display: none;
+		}
+
+		#selectBtnDiv .selectBtn {
+			display: inline-block;
+		}
+
+		#submitBtn {
+			display: inline-block;
+			margin: 30px 0px 0px 0px;
+		}
+
+		.result {
+			margin-top: 10px;
+			font-size: 1.2em;
+		}

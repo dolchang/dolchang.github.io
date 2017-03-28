@@ -218,7 +218,7 @@
 
 					for(var i in infModeRange) {
 						if(infModeRange[i] == 1) {
-							//console.log(i);
+							////console.log(i);
 							diff++;
 							break;
 						}
@@ -232,7 +232,7 @@
 							if(infModeRange[i] == 1) {
 								playingCardNameList[playingCardIdx] = nameArr[i];
 								playingCardIdxList[playingCardIdx] = idxArr[i];
-								//////alert(playingCardIdxList[playingCardIdx]);
+								////////alert(playingCardIdxList[playingCardIdx]);
 								playingCardIdList[playingCardIdx] = idArr[i];
 								playingCardIdx++;
 							}
@@ -331,9 +331,9 @@
 						//////alert(cardType);
 
 						//////alert(playingCardNameList);
-						//console.log(playingCardIdx + "#" + idxArr[rndArr]);
+						////console.log(playingCardIdx + "#" + idxArr[rndArr]);
 
-						//console.log(rndArr + "@" + rndCard);
+						////console.log(rndArr + "@" + rndCard);
 
 						duplicatedName = new Array();
 						duplicatedName[0] = playingCardNameList[rndArr][rndCard];
@@ -399,8 +399,8 @@
 							duplicatedName[dIdx++] = name;
 							//alert(duplicatedName[dIdx-1]);
 
-							//console.log(cardType);
-							//console.log(rndCard);
+							////console.log(cardType);
+							////console.log(rndCard);
 
 							/*if(cardType == 0) {
 								if(rndCard < idxArr[0]) {
@@ -428,9 +428,9 @@
 								}
 							}*/
 
-							//console.log(rndCard);
-							//console.log(name);
-							//console.log("-----");
+							////console.log(rndCard);
+							////console.log(name);
+							////console.log("-----");
 							////alert("#selectBtnDiv .selectBtn:nth-child(" + (i+1) + ")");
 							$("#selectBtnDiv .selectBtn:nth-child(" + (i+1) + ")").text(name);
 						}
@@ -601,9 +601,9 @@
 							duplicatedName[dIdx++] = name;
 							//alert(duplicatedName[dIdx-1]);
 
-							//console.log(rndCard);
-							//console.log(name);
-							//console.log("-----");
+							////console.log(rndCard);
+							////console.log(name);
+							////console.log("-----");
 							////alert("#selectBtnDiv .selectBtn:nth-child(" + (i+1) + ")");
 							$("#selectBtnDiv .selectBtn:nth-child(" + (i+1) + ")").text(name);
 						}
@@ -659,7 +659,7 @@
 
 					rndCard = Math.floor(Math.random() * playingCardIdxList[rndArr]);
 
-					console.log(rndIndex + "@" + rndArr + "@" + rndCard + "@" + playingCardNameList[rndArr][rndCard]);
+					//console.log(rndIndex + "@" + rndArr + "@" + rndCard + "@" + playingCardNameList[rndArr][rndCard]);
 
 					duplicatedName = new Array();
 					duplicatedName[0] = playingCardNameList[rndArr][rndCard];

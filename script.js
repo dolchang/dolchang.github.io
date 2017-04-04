@@ -360,7 +360,7 @@
 
 				for(var i in infModeRange) {
 					if(infModeRange[i] == 1) {
-							////console.log(i);
+							//////console.log(i);
 							diff++;
 							break;
 						}
@@ -374,7 +374,7 @@
 							if(infModeRange[i] == 1) {
 								playingCardNameList[playingCardIdx] = nameArr[i];
 								playingCardIdxList[playingCardIdx] = idxArr[i];
-								////////alert(playingCardIdxList[playingCardIdx]);
+								//////////alert(playingCardIdxList[playingCardIdx]);
 								playingCardIdList[playingCardIdx] = idArr[i];
 								playingCardIdx++;
 							}
@@ -388,7 +388,7 @@
 							allIndex += playingCardIdxList[i];
 						}
 
-						////alert(allIndex);
+						//////alert(allIndex);
 
 						rndIndex = Math.floor(Math.random() * allIndex);
 
@@ -468,7 +468,7 @@
 				});
 
 			$("#selectBtnDiv p").click(function() {
-				alert($("p").index(this));
+				//alert($("p").index(this));
 				if(isGaming == true) {
 					$("#selectBtnDiv p").attr("disabled", true);
 					$("#mask").css("background-size", "200px 300px");
@@ -604,7 +604,7 @@
 			});
 
 			$("#testMode p").click(function() {
-				alert($("p").index(this));
+				//alert($("p").index(this));
 				game++;
 				$("#gameDiv3 input").val("");
 				$("#gameDiv2 .selectBtn:not(:#submitBtn)").css("display", "none");
@@ -849,8 +849,8 @@
 				}
 
 
-				console.log(rndArr);
-				console.log(rndCard);
+				//console.log(rndArr);
+				//console.log(rndCard);
 
 				if((isHaveAttack &&
 					(playingCardNameList[rndArr][rndCard].replace(/ /g, '').replace(/!/g, '').replace(/:/g, '') ==
@@ -885,7 +885,7 @@
 			});
 
 		$("#gameDiv2 #resultBtn").click(function() {
-						//alert(win);
+						////alert(win);
 						if(((win <= 10) && (testModeDifficulty == 0)) || ((win <= 5) && (testModeDifficulty == 1)) || ((win <= 3) && (testModeDifficulty == 2))) {
 							rank = 10;
 						} else if(((win <= 20) && (testModeDifficulty == 0)) || ((win <= 10) && (testModeDifficulty == 1)) || ((win <= 6) && (testModeDifficulty == 2))) {
@@ -1121,8 +1121,8 @@
 				$("#field1 img").css("background-color", "red");
 
 				var rndDamage = Math.floor(Math.random() * 4) + 1;
-				console.log(rndDamage+"@");
-				alert(rndDamage);
+				//console.log(rndDamage+"@");
+				//alert(rndDamage);
 
 				$("#field1 img").css("background-color", "red");
 				$("#field1 img").fadeOut(3600, function() {

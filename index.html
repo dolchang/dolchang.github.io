@@ -61,12 +61,21 @@
 			display: none;
 		}
 
-		#gameDiv2 {
+		#gameDiv2, #gameDiv3 {
 			width: 100%;
 			height: 100%;
 			text-align: center;
 			margin-top: 5%;
 			display: none;
+		}
+
+		#gameDiv4 {
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			background-image: url("xtojoy.png");
+			background-size: cover;
+			background-repeat: none;
 		}
 
 		#mask {
@@ -83,7 +92,7 @@
 		}
 
 		#answer {
-			margin-bottom: 5%;
+			margin-bottom: 20px;
 			opacity: 0;
 		}
 
@@ -125,11 +134,11 @@
 			font-size: 1.2em;
 		}
 
-		#resultBtn {
+		#gameDiv2 #resultBtn, #gameDiv3 #resultBtn {
 			display: none;
 		}
 
-		#resultDiv {
+		#resultDiv, #resultDiv2, #finalResult2 {
 			width: 100%;
 			height: 70%;
 			text-align: center;
@@ -137,8 +146,86 @@
 			display: none;
 		}
 
-		#resultDiv * {
+		#resultDiv *, #resultDiv2 * {
 			display: none;
+		}
+
+		#gameDiv3 label {
+			margin-left: 20px;
+		}
+
+		#gameDiv3 .testAnswer {
+			opacity: 0;
+		}
+
+		#boom {
+			width: 80%;
+			height: 50%;
+			margin-top: 5%;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+		}
+
+		#boom h2 {
+			font-size: 1.5em;
+			text-align: center;
+		}
+
+		#boomField {
+			width: 100%;
+			height: 70%;
+		}
+
+		#field1 {
+			width: 100%;
+			height: 220px;
+		}
+
+		#field2 {
+			width: 100%;
+			height: 40%;
+		}
+
+		#field1 img, #field2 img {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		#boom p {
+			margin-top: 100px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		#finalResult1 {
+			width: 100%;
+			height: 80%;
+			margin-top: 10%;
+		}
+
+		#finalResult1 #imgDiv {
+			width: 233px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 50px;
+			cursor: pointer;
+		}
+
+		#finalResult1 p {
+			text-align: center;
+		}
+
+		#finalResult1 img, #finalResult2 img {
+			cursor: pointer;
+		}
+
+		.notImportant {
+			color: #ccc;
+		}
+
+		#gameDiv4 .selectBtn {
+			cursor: pointer;
 		}
 
 	</style>
@@ -181,6 +268,7 @@
 		<p>1단계 (신규 카드)</p>
 		<p>2단계 (정규전)</p>
 		<p>3단계 (모든 카드)</p>
+		<p>4단계 (경고 : 나도못깸)</p>
 
 		<br>
 		<br>
@@ -242,11 +330,122 @@
 
 	</div>
 
+	<div id="gameDiv3">
+		<div id="mask">
+		</div>
+
+		<p class = "testAnswer" id = "answer">정답입니다!</p>
+		<p class = "testAnswer"></p>
+
+		<p class = "result" id = "result1">문제 : 1번</p>
+		<p class = "result" id = "result2">정답 : 0/0</p>
+
+		<br/>
+
+		<label for="text">이름 : </label>
+		<input id="name" type="text"/>
+		<label for="text">코스트 : </label>
+		<input id="cost" type="text"/>
+		<label for="attack" class="haveAttack">공격력 : </label>
+		<input id="attack" class="haveAttack" type="text"/>
+		<label for="health" class="haveAttack">체력 / 내구도 : </label>
+		<input id="health" class="haveAttack" type="text"/>
+
+		<br/>
+		<br/>
+		<label for="rarity">카드 등급</label>
+		<select id="rarity">
+			<option value="FREE">기본</option>
+			<option value="COMMON">일반</option>
+			<option value="RARE">희귀</option>
+			<option value="EPIC">영웅</option>
+			<option value="LEGENDARY">전설</option>
+		</select>
+
+		<label for="class">직업</label>
+		<select id="class">
+			<option value="MAGE">마법사</option>
+			<option value="WARLOCK">흑마법사</option>
+			<option value="WARRIOR">전사</option>
+			<option value="SHAMAN">주술사</option>
+			<option value="PRIEST">사제</option>
+			<option value="PALADIN">성기사</option>
+			<option value="DRUID">드루이드</option>
+			<option value="HUNTER">사냥꾼</option>
+			<option value="ROGUE">도적</option>
+			<option value="NEUTRAL">중립 / 가젯잔 조직</option>
+		</select>
+
+		<label for="set">소속</label>
+		<select id="set">
+			<option value="EXPERT1">오리지널</option>
+			<option value="CORE">기본</option>
+			<option value="NAXX">낙스라마스</option>
+			<option value="GVG">고블린 대 노움</option>
+			<option value="BRM">검은 바위 산</option>
+			<option value="TGT">대마상시합</option>
+			<option value="LOE">탐험가 연맹</option>
+			<option value="OG">고대신의 속삭임</option>
+			<option value="KARA">카라잔</option>
+			<option value="GANGS">가젯잔</option>
+			<option value="REWARD">보상</option>
+			<option value="PROMO">프로모션</option>
+		</select>
+
+		<br/>
+		<br/>
+
+		<p class = "selectBtn" id="submitBtn">제출하기</p>
+
+		<br/>
+		<br/>
+
+		<p class = "selectBtn" id="selectBtn4">돌아가기</p>
+		<p class = "selectBtn" id="selectBtn5">다음문제</p>
+		<p id = "resultBtn">결과보기</p>
+	</div>
+
 	<div id="resultDiv">
 		<p class="result">당신의 실력은</p>
 		<img src="#"/>
 		<p class="result"><strong>방패병</strong> 입니다.</p>
 		<p class="result" id="resultAnswer">정답 수 : 0</p>
+	</div>
+
+	<div id="resultDiv2">
+		<p class="result">당신의 실력은</p>
+		<img src="#"/>
+		<p class="result"><strong>방패병</strong> 입니다.</p>
+		<p class="result" id="resultAnswer">정답 수 : 0</p>
+	</div>
+
+	<div id="finalResult2">
+		<p class="result">당신의 실력은</p>
+		<img src="rank10.png"/>
+		<p class="result"><strong>하린이</strong> 입니다.</p>
+	</div>
+
+	<div id="gameDiv4">
+		<div id="boom">
+			<h2>박사붐이 길을 막아섰습니다! 통과하려면 박사붐의 테스트를 통과해야합니다.</h2>
+			<div id="boomField">
+				<div id="field1">
+					<img class="damage" src="guldan.png"/>
+				</div>
+				<div id="field2">
+					<img src="bomb.png"/>
+				</div>
+			</div>
+			<p class="selectBtn">소용돌이 사용</p>
+		</div>
+	</div>
+
+	<div id="finalResult1">
+		<div id="imgDiv">
+			<img src="respect.png"/>
+		</div>
+		<p>Respect, 당신은 진정한 돌창입니다.</p>
+		<p class="notImportant">이런거 할시간에 10급도 못가는 불쌍한 하린이 '당신의어머니#31201' 좀 도와주십쇼ㅠ</p>
 	</div>
 
 	<script type="text/javascript" src="script.js">

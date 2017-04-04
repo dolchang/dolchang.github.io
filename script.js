@@ -140,7 +140,11 @@
 								standardMinionId[standardMinionIdx] = data[index].id;
 								standardMinionHealth[standardMinionIdx] = data[index].health;
 								standardMinionAttack[standardMinionIdx] = data[index].attack;
-								standardMinionRarity[standardMinionIdx] = data[index].rarity;
+								if(data[index].rarity == "COMMON" || data[index].rarity == "FREE") {
+									standardMinionRarity[standardMinionIdx] = "COMMON";
+								} else {
+									standardMinionRarity[standardMinionIdx] = data[index].rarity;
+								}
 								standardMinionCost[standardMinionIdx] = data[index].cost;
 								standardMinionSet[standardMinionIdx] = data[index].set;
 								standardMinionClass[standardMinionIdx] = data[index].playerClass;
@@ -148,7 +152,11 @@
 							} else if(data[index].type == "SPELL") {
 								standardSpellName[standardSpellIdx] = data[index].name;
 								standardSpellId[standardSpellIdx] = data[index].id;
-								standardSpellRarity[standardSpellIdx] = data[index].rarity;
+								if(data[index].rarity == "COMMON" || data[index].rarity == "FREE") {
+									standardSpellRarity[standardSpellIdx] = "COMMON";
+								} else {
+									standardSpellRarity[standardSpellIdx] = data[index].rarity;
+								}
 								standardSpellCost[standardSpellIdx] = data[index].cost;
 								standardSpellSet[standardSpellIdx] = data[index].set;
 								standardSpellClass[standardSpellIdx] = data[index].playerClass;
@@ -158,7 +166,11 @@
 								standardWeaponId[standardWeaponIdx] = data[index].id;
 								standardWeaponHealth[standardWeaponIdx] = data[index].durability;
 								standardWeaponAttack[standardWeaponIdx] = data[index].attack;
-								standardWeaponRarity[standardWeaponIdx] = data[index].rarity;
+								if(data[index].rarity == "COMMON" || data[index].rarity == "FREE") {
+									standardWeaponRarity[standardWeaponIdx] = "COMMON";
+								} else {
+									standardWeaponRarity[standardWeaponIdx] = data[index].rarity;
+								}
 								standardWeaponCost[standardWeaponIdx] = data[index].cost;
 								standardWeaponSet[standardWeaponIdx] = data[index].set;
 								standardWeaponClass[standardWeaponIdx] = data[index].playerClass;
@@ -174,7 +186,11 @@
 								aprilByeMinionId[aprilByeMinionIdx] = data[index].id;
 								aprilByeMinionHealth[aprilByeMinionIdx] = data[index].health;
 								aprilByeMinionAttack[aprilByeMinionIdx] = data[index].attack;
-								aprilByeMinionRarity[aprilByeMinionIdx] = data[index].rarity;
+								if(data[index].rarity == "COMMON" || data[index].rarity == "FREE") {
+									aprilByeMinionRarity[aprilByeMinionIdx] = "COMMON";
+								} else {
+									aprilByeMinionRarity[aprilByeMinionIdx] = data[index].rarity;
+								}
 								aprilByeMinionCost[aprilByeMinionIdx] = data[index].cost;
 								aprilByeMinionSet[aprilByeMinionIdx] = data[index].set;
 								aprilByeMinionClass[aprilByeMinionIdx] = data[index].playerClass;
@@ -182,7 +198,11 @@
 							} else if(data[index].type == "SPELL") {
 								aprilByeSpellName[aprilByeSpellIdx] = data[index].name;
 								aprilByeSpellId[aprilByeSpellIdx] = data[index].id;
-								aprilByeSpellRarity[aprilByeSpellIdx] = data[index].rarity;
+								if(data[index].rarity == "COMMON" || data[index].rarity == "FREE") {
+									aprilByeSpellRarity[aprilByeSpellIdx] = "COMMON";
+								} else {
+									aprilByeSpellRarity[aprilByeSpellIdx] = data[index].rarity;
+								}
 								aprilByeSpellCost[aprilByeSpellIdx] = data[index].cost;
 								aprilByeSpellSet[aprilByeSpellIdx] = data[index].set;
 								aprilByeSpellClass[aprilByeSpellIdx] = data[index].playerClass;
@@ -192,7 +212,11 @@
 								aprilByeWeaponId[aprilByeWeaponIdx] = data[index].id;
 								aprilByeWeaponHealth[aprilByeWeaponIdx] = data[index].durability;
 								aprilByeWeaponAttack[aprilByeWeaponIdx] = data[index].attack;
-								aprilByeWeaponRarity[aprilByeWeaponIdx] = data[index].rarity;
+								if(data[index].rarity == "COMMON" || data[index].rarity == "FREE") {
+									aprilByeWeaponRarity[aprilByeWeaponIdx] = "COMMON";
+								} else {
+									aprilByeWeaponRarity[aprilByeWeaponIdx] = data[index].rarity;
+								}
 								aprilByeWeaponCost[aprilByeWeaponIdx] = data[index].cost;
 								aprilByeWeaponSet[aprilByeWeaponIdx] = data[index].set;
 								aprilByeWeaponClass[aprilByeWeaponIdx] = data[index].playerClass;
@@ -211,7 +235,11 @@
 								wildMinionId[wildMinionIdx] = data[index].id;
 								wildMinionHealth[wildMinionIdx] = data[index].health;
 								wildMinionAttack[wildMinionIdx] = data[index].attack;
-								wildMinionRarity[wildMinionIdx] = data[index].rarity;
+								if(data[index].rarity == "COMMON" || data[index].rarity == "FREE") {
+									wildMinionRarity[wildMinionIdx] = "COMMON";
+								} else {
+									wildMinionRarity[wildMinionIdx] = data[index].rarity;
+								}
 								wildMinionCost[wildMinionIdx] = data[index].cost;
 								wildMinionSet[wildMinionIdx] = data[index].set;
 								wildMinionClass[wildMinionIdx] = data[index].playerClass;
@@ -219,7 +247,11 @@
 							} else if(data[index].type == "SPELL") {
 								wildSpellName[wildSpellIdx] = data[index].name;
 								wildSpellId[wildSpellIdx] = data[index].id;
-								wildSpellRarity[wildSpellIdx] = data[index].rarity;
+								if(data[index].rarity == "COMMON" || data[index].rarity == "FREE") {
+									wildSpellRarity[wildSpellIdx] = "COMMON";
+								} else {
+									wildSpellRarity[wildSpellIdx] = data[index].rarity;
+								}
 								wildSpellCost[wildSpellIdx] = data[index].cost;
 								wildSpellSet[wildSpellIdx] = data[index].set;
 								wildSpellClass[wildSpellIdx] = data[index].playerClass;
@@ -229,7 +261,11 @@
 								wildWeaponId[wildWeaponIdx] = data[index].id;
 								wildWeaponHealth[wildWeaponIdx] = data[index].durability;
 								wildWeaponAttack[wildWeaponIdx] = data[index].attack;
-								wildWeaponRarity[wildWeaponIdx] = data[index].rarity;
+								if(data[index].rarity == "COMMON" || data[index].rarity == "FREE") {
+									wildWeaponRarity[wildWeaponIdx] = "COMMON";
+								} else {
+									wildWeaponRarity[wildWeaponIdx] = data[index].rarity;
+								}
 								wildWeaponCost[wildWeaponIdx] = data[index].cost;
 								wildWeaponSet[wildWeaponIdx] = data[index].set;
 								wildWeaponClass[wildWeaponIdx] = data[index].playerClass;
@@ -756,7 +792,7 @@
 					rarityKor = "기본";
 					break;
 					case "COMMON":
-					rarityKor = "일반";
+					rarityKor = "기본 / 일반";
 					break;
 					case "RARE":
 					rarityKor = "희귀";

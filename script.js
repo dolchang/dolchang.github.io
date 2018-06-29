@@ -1,5 +1,5 @@
 		var gameMode;		// 0 = infinity 1 = test
-		var infModeRange = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+		var infModeRange = new Array(0, 0, 0, 0, 0, 0);
 		var testModeDifficulty = 0;
 
 		var len = 0;
@@ -31,34 +31,6 @@
 		var standardWeaponSet = new Array();
 		var standardWeaponClass = new Array();
 		var standardWeaponIdx = 0;
-
-		var aprilByeMinionName = new Array();
-		var aprilByeMinionId = new Array();
-		var aprilByeMinionHealth = new Array();
-		var aprilByeMinionAttack = new Array();
-		var aprilByeMinionRarity = new Array();
-		var aprilByeMinionCost = new Array();
-		var aprilByeMinionSet = new Array();
-		var aprilByeMinionClass = new Array();
-		var aprilByeMinionIdx = 0;
-
-		var aprilByeSpellName = new Array();
-		var aprilByeSpellId = new Array();
-		var aprilByeSpellRarity = new Array();
-		var aprilByeSpellCost = new Array();
-		var aprilByeSpellSet = new Array();
-		var aprilByeSpellClass = new Array();
-		var aprilByeSpellIdx = 0;
-
-		var aprilByeWeaponName = new Array();
-		var aprilByeWeaponId = new Array();
-		var aprilByeWeaponHealth = new Array();
-		var aprilByeWeaponAttack = new Array();
-		var aprilByeWeaponRarity = new Array();
-		var aprilByeWeaponCost = new Array();
-		var aprilByeWeaponSet = new Array();
-		var aprilByeWeaponClass = new Array();
-		var aprilByeWeaponIdx = 0;
 
 		var wildMinionName = new Array();
 		var wildMinionId = new Array();
@@ -123,17 +95,18 @@
 
 		$(function() {
 			var ajaxRequest = $.ajax({
-				url: 'https://api.hearthstonejson.com/v1/17994/koKR/cards.collectible.json',
+				url: 'https://api.hearthstonejson.com/v1/24769/koKR/cards.collectible.json',
 				dataType: 'json',
 				success: function(data) {
 					var len = data.length;
 
 					$.each(data, function(index, item) {
 						switch(data[index].set) {
-							case "KARA":
-							case "GANGS":
+							case "GILNEAS":
+							case "LOOTAPALOOZA":
+							case "ICECROWN":
+							case "UNGORO":
 							case "EXPERT1":
-							case "OG":
 							case "CORE":
 							if(data[index].type == "MINION") {
 								standardMinionName[standardMinionIdx] = data[index].name;
@@ -147,7 +120,7 @@
 								}
 								standardMinionCost[standardMinionIdx] = data[index].cost;
 								standardMinionSet[standardMinionIdx] = data[index].set;
-								standardMinionClass[standardMinionIdx] = data[index].playerClass;
+								standardMinionClass[standardMinionIdx] = data[index].cardClass;
 								standardMinionIdx++;
 							} else if(data[index].type == "SPELL") {
 								standardSpellName[standardSpellIdx] = data[index].name;
@@ -159,7 +132,7 @@
 								}
 								standardSpellCost[standardSpellIdx] = data[index].cost;
 								standardSpellSet[standardSpellIdx] = data[index].set;
-								standardSpellClass[standardSpellIdx] = data[index].playerClass;
+								standardSpellClass[standardSpellIdx] = data[index].cardClass;
 								standardSpellIdx++;
 							} else if(data[index].type == "WEAPON") {
 								standardWeaponName[standardWeaponIdx] = data[index].name;
@@ -173,63 +146,12 @@
 								}
 								standardWeaponCost[standardWeaponIdx] = data[index].cost;
 								standardWeaponSet[standardWeaponIdx] = data[index].set;
-								standardWeaponClass[standardWeaponIdx] = data[index].playerClass;
+								standardWeaponClass[standardWeaponIdx] = data[index].cardClass;
 								standardWeaponIdx++;
 							}
 							break;
 
-							case "TGT":
-							case "BRM":
-							case "LOE":
-							if(data[index].type == "MINION") {
-								aprilByeMinionName[aprilByeMinionIdx] = data[index].name;
-								aprilByeMinionId[aprilByeMinionIdx] = data[index].id;
-								aprilByeMinionHealth[aprilByeMinionIdx] = data[index].health;
-								aprilByeMinionAttack[aprilByeMinionIdx] = data[index].attack;
-								if(data[index].rarity == "COMMON" || data[index].rarity == "FREE") {
-									aprilByeMinionRarity[aprilByeMinionIdx] = "COMMON";
-								} else {
-									aprilByeMinionRarity[aprilByeMinionIdx] = data[index].rarity;
-								}
-								aprilByeMinionCost[aprilByeMinionIdx] = data[index].cost;
-								aprilByeMinionSet[aprilByeMinionIdx] = data[index].set;
-								aprilByeMinionClass[aprilByeMinionIdx] = data[index].playerClass;
-								aprilByeMinionIdx++;
-							} else if(data[index].type == "SPELL") {
-								aprilByeSpellName[aprilByeSpellIdx] = data[index].name;
-								aprilByeSpellId[aprilByeSpellIdx] = data[index].id;
-								if(data[index].rarity == "COMMON" || data[index].rarity == "FREE") {
-									aprilByeSpellRarity[aprilByeSpellIdx] = "COMMON";
-								} else {
-									aprilByeSpellRarity[aprilByeSpellIdx] = data[index].rarity;
-								}
-								aprilByeSpellCost[aprilByeSpellIdx] = data[index].cost;
-								aprilByeSpellSet[aprilByeSpellIdx] = data[index].set;
-								aprilByeSpellClass[aprilByeSpellIdx] = data[index].playerClass;
-								aprilByeSpellIdx++;
-							} else if(data[index].type == "WEAPON") {
-								aprilByeWeaponName[aprilByeWeaponIdx] = data[index].name;
-								aprilByeWeaponId[aprilByeWeaponIdx] = data[index].id;
-								aprilByeWeaponHealth[aprilByeWeaponIdx] = data[index].durability;
-								aprilByeWeaponAttack[aprilByeWeaponIdx] = data[index].attack;
-								if(data[index].rarity == "COMMON" || data[index].rarity == "FREE") {
-									aprilByeWeaponRarity[aprilByeWeaponIdx] = "COMMON";
-								} else {
-									aprilByeWeaponRarity[aprilByeWeaponIdx] = data[index].rarity;
-								}
-								aprilByeWeaponCost[aprilByeWeaponIdx] = data[index].cost;
-								aprilByeWeaponSet[aprilByeWeaponIdx] = data[index].set;
-								aprilByeWeaponClass[aprilByeWeaponIdx] = data[index].playerClass;
-								aprilByeWeaponIdx++;
-							}
-
-							break;
-
-
-							case "GVG":
-							case "NAXX":
-							case "REWARD":
-							case "PROMO":
+							default:
 							if(data[index].type == "MINION") {
 								wildMinionName[wildMinionIdx] = data[index].name;
 								wildMinionId[wildMinionIdx] = data[index].id;
@@ -242,7 +164,7 @@
 								}
 								wildMinionCost[wildMinionIdx] = data[index].cost;
 								wildMinionSet[wildMinionIdx] = data[index].set;
-								wildMinionClass[wildMinionIdx] = data[index].playerClass;
+								wildMinionClass[wildMinionIdx] = data[index].cardClass;
 								wildMinionIdx++;
 							} else if(data[index].type == "SPELL") {
 								wildSpellName[wildSpellIdx] = data[index].name;
@@ -254,7 +176,7 @@
 								}
 								wildSpellCost[wildSpellIdx] = data[index].cost;
 								wildSpellSet[wildSpellIdx] = data[index].set;
-								wildSpellClass[wildSpellIdx] = data[index].playerClass;
+								wildSpellClass[wildSpellIdx] = data[index].cardClass;
 								wildSpellIdx++;
 							} else if(data[index].type == "WEAPON") {
 								wildWeaponName[wildWeaponIdx] = data[index].name;
@@ -268,7 +190,7 @@
 								}
 								wildWeaponCost[wildWeaponIdx] = data[index].cost;
 								wildWeaponSet[wildWeaponIdx] = data[index].set;
-								wildWeaponClass[wildWeaponIdx] = data[index].playerClass;
+								wildWeaponClass[wildWeaponIdx] = data[index].cardClass;
 								wildWeaponIdx++;
 							}
 							break;
@@ -278,51 +200,41 @@
 			});
 
 		$.when(ajaxRequest).done(function() {
-			alert("로딩 완료.");
 			$("#gameDiv2 #answer:nth-child(2)").css("marginBottom", "10px");
 			nameArr = new Array
 			(standardMinionName, standardSpellName, standardWeaponName,
-				aprilByeMinionName, aprilByeSpellName, aprilByeWeaponName,
 				wildMinionName, wildSpellName, wildWeaponName);
 
 			idArr = new Array
 			(standardMinionId, standardSpellId, standardWeaponId,
-				aprilByeMinionId, aprilByeSpellId, aprilByeWeaponId,
 				wildMinionId, wildSpellId, wildWeaponId);
 
 			idxArr = new Array
 			(standardMinionIdx, standardSpellIdx, standardWeaponIdx,
-				aprilByeMinionIdx, aprilByeSpellIdx, aprilByeWeaponIdx,
 				wildMinionIdx, wildSpellIdx, wildWeaponIdx);
 
 			attackArr = new Array
 			(standardMinionAttack, null, standardWeaponAttack,
-				aprilByeMinionAttack, null, aprilByeWeaponAttack,
 				wildMinionAttack, null, wildWeaponAttack);
 
 			healthArr = new Array
 			(standardMinionHealth, null, standardWeaponHealth,
-				aprilByeMinionHealth, null, aprilByeWeaponHealth,
 				wildMinionHealth, null, wildWeaponHealth);
 
 			classArr = new Array
 			(standardMinionClass, standardSpellClass, standardWeaponClass,
-				aprilByeMinionClass, aprilByeSpellClass, aprilByeWeaponClass,
 				wildMinionClass, wildSpellClass, wildWeaponClass);
 
 			rarityArr = new Array
 			(standardMinionRarity, standardSpellRarity, standardWeaponRarity,
-				aprilByeMinionRarity, aprilByeSpellRarity, aprilByeWeaponRarity,
 				wildMinionRarity, wildSpellRarity, wildWeaponRarity);
 
 			costArr = new Array
 			(standardMinionCost, standardSpellCost, standardWeaponCost,
-				aprilByeMinionCost, aprilByeSpellCost, aprilByeWeaponCost,
 				wildMinionCost, wildSpellCost, wildWeaponCost);
 
 			setArr = new Array
 			(standardMinionSet, standardSpellSet, standardWeaponSet,
-				aprilByeMinionSet, aprilByeSpellSet, aprilByeWeaponSet,
 				wildMinionSet, wildSpellSet, wildWeaponSet);
 
 			$("#infMode").css("display", "none");
@@ -396,7 +308,6 @@
 
 				for(var i in infModeRange) {
 					if(infModeRange[i] == 1) {
-							//////console.log(i);
 							diff++;
 							break;
 						}
@@ -410,7 +321,6 @@
 							if(infModeRange[i] == 1) {
 								playingCardNameList[playingCardIdx] = nameArr[i];
 								playingCardIdxList[playingCardIdx] = idxArr[i];
-								//////////alert(playingCardIdxList[playingCardIdx]);
 								playingCardIdList[playingCardIdx] = idArr[i];
 								playingCardIdx++;
 							}
@@ -423,8 +333,6 @@
 						for(var i in playingCardIdxList) {
 							allIndex += playingCardIdxList[i];
 						}
-
-						//////alert(allIndex);
 
 						rndIndex = Math.floor(Math.random() * allIndex);
 
@@ -504,7 +412,6 @@
 				});
 
 			$("#selectBtnDiv p").click(function() {
-				//alert($("p").index(this));
 				if(isGaming == true) {
 					$("#selectBtnDiv p").attr("disabled", true);
 					$("#mask").css("background-size", "200px 300px");
@@ -514,7 +421,7 @@
 						$("#gameDiv #selectBtn2, #gameDiv #selectBtn3").css("display", "inline-block");
 					});
 
-					if((($("p").index(this)) - 20) == answerIdx) {
+					if((($("p").index(this)) - 14) == answerIdx) {
 						win++;
 						$("#answer").text("정답입니다!");
 					} else {
@@ -640,7 +547,6 @@
 			});
 
 			$("#testMode p").click(function() {
-				//alert($("p").index(this));
 				game++;
 				$("#gameDiv3 input").val("");
 				$("#gameDiv2 .selectBtn:not(:#submitBtn)").css("display", "none");
@@ -648,22 +554,17 @@
 				$("#gameDiv2 .testAnswer").css("opacity", "0");
 				$("#gameDiv3 .testAnswer").css("opacity", "0");
 				$("result1").text("문제 : " + game + "번");
-				if(($("p").index(this)) == 13) {
+				if(($("p").index(this)) == 9) {
 					testModeDifficulty = 0;
 					playingCardNameList = new Array(nameArr[0], nameArr[1], nameArr[2]);
 					playingCardIdxList = new Array(idxArr[0], idxArr[1], idxArr[2]);
 					playingCardIdList = new Array(idArr[0], idArr[1], idArr[2]);
-				} else if(($("p").index(this)) == 14) {
-					testModeDifficulty = 1;
-					playingCardNameList = new Array(nameArr[0], nameArr[1], nameArr[2], nameArr[3], nameArr[4], nameArr[5]);
-					playingCardIdxList = new Array(idxArr[0], idxArr[1], idxArr[2], idxArr[3], idxArr[4], idxArr[5]);
-					playingCardIdList = new Array(idArr[0], idArr[1], idArr[2], idArr[3], idArr[4], idArr[5]);
-				} else if(($("p").index(this)) == 15) {
+				} else if(($("p").index(this)) == 10) {
 					testModeDifficulty = 2;
 					playingCardNameList = nameArr;
 					playingCardIdxList = idxArr;
 					playingCardIdList = idArr;
-				} else {
+				} else if(($("p").index(this)) == 11) {
 					testModeDifficulty = 3;
 					playingCardNameList = nameArr;
 					playingCardIdxList = idxArr;
@@ -703,7 +604,7 @@
 				duplicatedName = new Array();
 				duplicatedName[0] = playingCardNameList[rndArr][rndCard];
 
-				if(($("p").index(this)) <= 15) {
+				if(($("p").index(this)) < 12) {
 					$("#gameDiv2 #mask").css("background-image", "url(http://media.services.zam.com/v1/media/byName/hs/cards/enus/" +
 						playingCardIdList[rndArr][rndCard] + ".png)");
 
@@ -869,6 +770,21 @@
 					case "GANGS":
 					setKor = "가젯잔";
 					break;
+					case "GILNEAS":
+					setKor = "마녀숲";
+					break;
+					case "LOOTAPALOOZA":
+					setKor = "코볼트와 지하 미궁";
+					break;
+					case "ICECROWN":
+					setKor = "얼어붙은 왕좌의 기사들";
+					break;
+					case "UNGORO":
+					setKor = "운고로";
+					break;
+					case "HOF":
+					setKor = "명예의 전당";
+					break;
 					case "REWARD":
 					setKor = "보상";
 					break;
@@ -883,10 +799,6 @@
 				} else {
 					$("#gameDiv3 .testAnswer:nth-child(3)").html(costArr[rndArr][rndCard] + "코스트 " + nameArr[rndArr][rndCard] + "<br/>카드 등급 : " + rarityKor + ",  직업 : " + classKor + ",  소속 : " + setKor);
 				}
-
-
-				//console.log(rndArr);
-				//console.log(rndCard);
 
 				if((isHaveAttack &&
 					(playingCardNameList[rndArr][rndCard].replace(/ /g, '').replace(/!/g, '').replace(/:/g, '') ==
@@ -921,7 +833,6 @@
 			});
 
 		$("#gameDiv2 #resultBtn").click(function() {
-						////alert(win);
 						if(((win <= 10) && (testModeDifficulty == 0)) || ((win <= 5) && (testModeDifficulty == 1)) || ((win <= 3) && (testModeDifficulty == 2))) {
 							rank = 10;
 						} else if(((win <= 20) && (testModeDifficulty == 0)) || ((win <= 10) && (testModeDifficulty == 1)) || ((win <= 6) && (testModeDifficulty == 2))) {
@@ -1157,8 +1068,6 @@
 				$("#field1 img").css("background-color", "red");
 
 				var rndDamage = Math.floor(Math.random() * 4) + 1;
-				//console.log(rndDamage+"@");
-				//alert(rndDamage);
 
 				$("#field1 img").css("background-color", "red");
 				$("#field1 img").fadeOut(3600, function() {
